@@ -9,8 +9,13 @@ app = Flask(__name__)
 app.config['JWT_SECRET_KEY'] = os.getenv("JWT_SECRET")  # nemanjica
 jwt = JWTManager(app)
 
+
+@app.route('/api/hello', methods=['GET'])
+def hello():
+    return jsonify({"message": "Zdravo iz Flask API-ja!"})
+
 # ruta za login koja vraća token koji ne ističe
-@app.route('/token', methods=['POST'])
+@app.route('/api/token', methods=['POST'])
 def get_token():
     data = request.json
     # proverava korisničko ime i lozinku iz .env
