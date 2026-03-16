@@ -10,7 +10,7 @@ app.config['JWT_SECRET_KEY'] = os.getenv("JWT_SECRET")  # nemanjica
 jwt = JWTManager(app)
 
 
-@app.route('/api/hello', methods=['GET'])
+@app.route('/hello', methods=['GET'])
 def hello():
     return jsonify({"message": "Zdravo iz Flask API-ja!"})
 
